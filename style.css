@@ -1,0 +1,166 @@
+ * {
+            box-sizing: border-box;
+            padding: 0.7vh;
+        }
+        body {
+            font-family: 'Muli', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            background: linear-gradient(to right, white, lightblue);
+            flex-direction: column; 
+        }
+        .container {
+            display: flex;
+            width: 90vw;
+        }
+        .panel {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 50vh;
+            border-radius: 70px;
+            color: #fff;
+            cursor: pointer;
+            flex: 1;
+            margin: 10px;
+            position: relative;
+            transition: all 500ms ease-in;
+        }
+        .panel h3 {
+            font-size: 24px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            margin: 0;
+            opacity: 0;
+        }
+        .panel.active {
+            flex: 5;
+            box-shadow: 10px 10px 5px grey;
+        }
+        .panel.active h3 {
+            opacity: 1;
+            transition: opacity 0.3s ease-in 0.35s;
+        }
+        
+        .anime {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: green;
+            position: relative;
+            animation-name: exid;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+            animation-timing-function: ease-in;
+        }
+        @keyframes exid {
+          0% { left: 0%; }
+          25% { left: 25%; }
+          50% { left: 50%; }
+          75% { left: -25%; }
+          100% { left: 0%; }
+      }
+      
+        .slide {
+            max-width: 100%;
+            margin-right: 15px;
+            background: linear-gradient(to right, skyblue, blue);
+            width: 70px;
+            height: 50px;
+            border-radius: 50%;
+            animation-name: slider;
+            position: relative;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+        }
+        @keyframes slider {
+            0% {
+                top: 0px;       /* Starting point at the bottom */
+                left: 100px;    /* Starting point on the right */
+            }
+            25% {
+                top: -200px;    /* Move up */
+                left: 0px;      /* Move to the center */
+            }
+            50% {
+                top: 0px;       /* Back to the bottom */
+                left: -200px;   /* Move to the left */
+            }
+            75% {
+                top: 300px;     /* Move down */
+                left: 0px;      /* Move to the center */
+            }
+            100% {
+                top: 0px;       /* Complete the circle */
+                left: 300px;    /* Back to the starting point on the right */
+            }
+        }
+        
+      
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .07em;
+            animation: typing 3.0s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                position: relative;
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
+                font-size: 0.5em;
+                overflow-y: hidden; 
+            }
+
+            .typewriter {
+                font-family: new times roman;
+                font-size: 2em;
+                order: 1; 
+                margin-bottom: 20px;
+            }
+            
+            .container {
+                display: flex; 
+                overflow-x: auto; 
+                max-width: 100%; 
+                padding: 20px 10px; 
+                order: 2; 
+                height: 70vh;
+            }
+
+            .panel {
+                flex: 1 1 auto; 
+                scroll-snap-align: start; 
+            }
+            .panel active{
+              max-width: 300px;
+              flex: 5 1 auto;
+            }
+            .panel h3{
+                font-size: 1.8em;
+                font-family: georgia;
+                white-space: wrap; 
+                overflow:hidden;
+            }
+        }
